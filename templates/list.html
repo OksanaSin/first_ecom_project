@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+books = [
+{
+"id": "1",
+"title": "Django for Beginners: Bui",
+"image_url": "https://images-na.ssl-images-amazon.com/images/I/41-bFTJlrSL._SX384_BO1,204,203,200_.jpg",
+"price": "30.99",
+"book_available": "True"
+},
+
+{
+"id": "2",
+"title": "Django for Professionals:",
+"image_url": "https://images-na.ssl-images-amazon.com/images/I/61yEnH2STSL.jpg",
+"price": "40.00",
+"book_available": "True"
+},
+
+]
+
+
+{% block content %}
+    <hr>
+    <div class="row">
+    {% for book in books %}
+         <div class="col">
+            <div class="col">
+                <div class="card" style="width: 13rem;">
+                    <img src="{{ book.image_url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.title|slice:":25"}} ...</h5>
+                        <p class="card-text">${{ book.price|floatformat:2 }}</p>
+                        {% if book.book_available is True %}
+                            <li class="text-primary">Available</li>
+                        {% else %}
+                            <li class="text-danger">Out of Stock !</li>
+                        {% endif %}<br>
+                        <a href="{% url 'detail' book.id %}" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+
+    </div>
+
+{% endblock content %}
+
+books = [
+{
+"id": "1",
+"title": "Django for Beginners: Bui",
+"image_url": "https://images-na.ssl-images-amazon.com/images/I/41-bFTJlrSL._SX384_BO1,204,203,200_.jpg"
+"price": "30.99",
+"available": "True"
+},
+
+{
+"id": "2",
+"title": "Django for Professionals:",
+"image_url": "https://images-na.ssl-images-amazon.com/images/I/61yEnH2STSL.jpg"
+"price": "40.00",
+"available": "True"
+},
+
+]

@@ -14,9 +14,6 @@ class BooksListView(ListView):
     template_name = 'list.html'
     context_object_name = 'books'
 
-    def get_context_data(self):
-        return render(ListView, "list.html", context={})
-
 
 class BooksDetailView(DetailView):
     model = Book

@@ -1,7 +1,7 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-darkreader-mode="dynamic" data-darkreader-scheme="dark">
 
 <head>
   <!-- Required meta tags -->
@@ -11,15 +11,17 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
   <title>Online Bookstore</title>
 </head>
 
 <body>
   <!--Nav Bar-->
   <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'list' %}">Online Bookstore</a>
+    <a class="navbar-brand" href="/">Online Bookstore</a>
     <div class="btn-group dropright">
+    </div>
+
+    </div>
       <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{user}}
       </a>
@@ -35,29 +37,26 @@
         {% endif %}
         </div>
     </div>
-    <div class="mx-auto" style="width: 10px;">
+
     </div>
 
     <!-- search css -->
-    <form class="search" action="{% url 'search_results' %}" method="get">
+    <form class="search" action="/search/" method="get">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
       <i class="fas fa-search"></i>
       <input name="q" class="fas fa-search" type="text" autocomplete="off" placeholder="click to search">
     </form>
-
-  </nav><br>
-
+</nav><br>
 
 
-  <div class='container'>
+<div class='container'>
 
 
     {% block content %}
 
 
     {% endblock content %}
-
 
   </div>
   <!-- Optional JavaScript -->
@@ -72,5 +71,4 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
